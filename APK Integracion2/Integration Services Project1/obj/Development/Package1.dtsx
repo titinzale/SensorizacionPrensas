@@ -1,0 +1,1234 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="7/19/2018 3:23:49 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="ALAREPOZMI_P"
+  DTS:CreatorName="ALIBERICO\AREPOZMI"
+  DTS:DTSID="{8853F66A-5EB3-43FD-9ED0-1810E87F8D92}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="14.0.0800.60"
+  DTS:LocaleID="3082"
+  DTS:ObjectName="Package1"
+  DTS:PackageType="5"
+  DTS:VersionBuild="42"
+  DTS:VersionGUID="{7C41622D-9595-40D7-9896-93F41D5D12CA}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Excel Connection Manager]"
+      DTS:CreationName="EXCEL"
+      DTS:DTSID="{1FBA3CBF-EB6E-417F-821F-A1DFB46EC960}"
+      DTS:ObjectName="Excel Connection Manager">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:\Users\AREPOZMI\Desktop\varios\backup pen\20171210\Master\TFM\Origenes de datos\prueba entrada prensas.xls;Extended Properties=&quot;EXCEL 8.0;HDR=YES&quot;;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[PROC]"
+      DTS:CreationName="FILE"
+      DTS:DTSID="{46CFCFF0-ED45-4115-B1DE-3CEA852E0679}"
+      DTS:ObjectName="PROC">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:FileUsageType="2"
+          DTS:ConnectionString="C:\Users\AREPOZMI\Desktop\varios\backup pen\20171210\Master\TFM\Origenes de datos\PROC" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[PROC 1]"
+      DTS:CreationName="FILE"
+      DTS:DTSID="{573D3C58-D7AA-4EF9-AFAE-3E4808996CD2}"
+      DTS:ObjectName="PROC 1">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:FileUsageType="2"
+          DTS:ConnectionString="C:\Users\AREPOZMI\Desktop\varios\backup pen\20171210\Master\TFM\Origenes de datos\PROC" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[PROCESADOS ERROR]"
+      DTS:CreationName="FILE"
+      DTS:DTSID="{DCF0E107-A0A1-44A2-A785-6F5DFB2F5C28}"
+      DTS:ObjectName="PROCESADOS ERROR">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:FileUsageType="2"
+          DTS:ConnectionString="C:\Users\AREPOZMI\Desktop\varios\backup pen\20171210\Master\TFM\Origenes de datos\ERROR" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[PROCESADOS OK]"
+      DTS:CreationName="FILE"
+      DTS:DTSID="{90A69BD9-B477-481D-B9DE-855A1DC28FE7}"
+      DTS:ObjectName="PROCESADOS OK">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:FileUsageType="3"
+          DTS:ConnectionString="C:\Users\AREPOZMI\Desktop\varios\backup pen\20171210\Master\TFM\Origenes de datos\PROC\" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{6E155639-D7F7-449C-9054-2BA920426A10}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="DestDir">
+      <DTS:VariableValue
+        DTS:DataType="8">C:\Users\AREPOZMI\Desktop\varios\backup pen\20171210\Master\TFM\Origenes de datos\PROC</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{45177A77-8FCB-44F7-94F7-DBDFF3C37F98}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="DestDirErr">
+      <DTS:VariableValue
+        DTS:DataType="8">C:\Users\AREPOZMI\Desktop\varios\backup pen\20171210\Master\TFM\Origenes de datos\ERROR</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{809D6DF5-827F-4253-AD6E-AA51DD0842B3}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="Dir">
+      <DTS:VariableValue
+        DTS:DataType="8">C:\Users\AREPOZMI\Desktop\varios\backup pen\20171210\Master\TFM\Origenes de datos</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{37CD9A75-B913-4F27-B6FE-94969DB7C43B}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="vFileName">
+      <DTS:VariableValue
+        DTS:DataType="8">fichero.xls</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{8DC308BC-F24C-450A-B087-DAA872A06FFB}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="vFilePath">
+      <DTS:VariableValue
+        DTS:DataType="8">Users\AREPOZMI\Desktop\varios\backup pen\20171210\Master\TFM\Origenes de datos</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{22027ACC-944E-4AC8-A059-0666A824ADF0}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="vPress">
+      <DTS:VariableValue
+        DTS:DataType="3">2</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{F815B08C-5A79-43DA-9639-0907BDB55882}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="vServer">
+      <DTS:VariableValue
+        DTS:DataType="8">c:\</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Foreach Loop Container"
+      DTS:CreationName="STOCK:FOREACHLOOP"
+      DTS:Description="Foreach Loop Container"
+      DTS:DTSID="{FFB7E8ED-A9B1-4492-8FA3-334754200F9E}"
+      DTS:ExecutableType="STOCK:FOREACHLOOP"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Foreach Loop Container">
+      <DTS:ForEachEnumerator
+        DTS:CreationName="Microsoft.ForEachFileEnumerator"
+        DTS:DTSID="{98BD2365-E584-47B0-B0CA-86FCD03ECBCB}"
+        DTS:ObjectName="{98BD2365-E584-47B0-B0CA-86FCD03ECBCB}">
+        <DTS:PropertyExpression
+          DTS:Name="Directory">@[User::vServer]+  @[User::vFilePath]</DTS:PropertyExpression>
+        <DTS:PropertyExpression
+          DTS:Name="FileSpec">"*.xls"</DTS:PropertyExpression>
+        <DTS:ObjectData>
+          <ForEachFileEnumeratorProperties>
+            <FEFEProperty
+              Folder="c:\Users\AREPOZMI\Desktop\varios\backup pen\20171210\Master\TFM\Origenes de datos" />
+            <FEFEProperty
+              FileSpec="*.xls" />
+            <FEFEProperty
+              FileNameRetrievalType="0" />
+            <FEFEProperty
+              Recurse="0" />
+          </ForEachFileEnumeratorProperties>
+        </DTS:ObjectData>
+      </DTS:ForEachEnumerator>
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\Foreach Loop Container\Flujo de procesamiento"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{53038C2F-2841-4D77-98E4-E087931F6525}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Flujo de procesamiento"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\Foreach Loop Container\Flujo de procesamiento\Derived Column"
+                  componentClassID="Microsoft.DerivedColumn"
+                  contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+                  name="Derived Column"
+                  usesDispositions="true">
+                  <inputs>
+                    <input
+                      refId="Package\Foreach Loop Container\Flujo de procesamiento\Derived Column.Inputs[Derived Column Input]"
+                      description="Input to the Derived Column Transformation"
+                      name="Derived Column Input">
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Foreach Loop Container\Flujo de procesamiento\Derived Column.Outputs[Derived Column Output]"
+                      description="Default Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      name="Derived Column Output"
+                      synchronousInputId="Package\Foreach Loop Container\Flujo de procesamiento\Derived Column.Inputs[Derived Column Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Flujo de procesamiento\Derived Column.Outputs[Derived Column Output].Columns[NombreFichero]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Computation"
+                          errorRowDisposition="FailComponent"
+                          length="100"
+                          lineageId="Package\Foreach Loop Container\Flujo de procesamiento\Derived Column.Outputs[Derived Column Output].Columns[NombreFichero]"
+                          name="NombreFichero"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Expression"
+                              name="Expression">(DT_STR,100,1252)@[User::vFileName]</property>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Friendly Expression"
+                              expressionType="Notify"
+                              name="FriendlyExpression">(DT_STR,100,1252)@[User::vFileName]</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Flujo de procesamiento\Derived Column.Outputs[Derived Column Output].Columns[Prensa]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Computation"
+                          errorRowDisposition="FailComponent"
+                          lineageId="Package\Foreach Loop Container\Flujo de procesamiento\Derived Column.Outputs[Derived Column Output].Columns[Prensa]"
+                          name="Prensa"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Expression"
+                              name="Expression">@[User::vPress]</property>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Friendly Expression"
+                              expressionType="Notify"
+                              name="FriendlyExpression">@[User::vPress]</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Flujo de procesamiento\Derived Column.Outputs[Derived Column Output].Columns[Servidor]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Computation"
+                          errorRowDisposition="FailComponent"
+                          length="100"
+                          lineageId="Package\Foreach Loop Container\Flujo de procesamiento\Derived Column.Outputs[Derived Column Output].Columns[Servidor]"
+                          name="Servidor"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Expression"
+                              name="Expression">(DT_STR,100,1252)@[User::vServer]</property>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Friendly Expression"
+                              expressionType="Notify"
+                              name="FriendlyExpression">(DT_STR,100,1252)@[User::vServer]</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Flujo de procesamiento\Derived Column.Outputs[Derived Column Output].Columns[Ruta]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Computation"
+                          errorRowDisposition="FailComponent"
+                          length="100"
+                          lineageId="Package\Foreach Loop Container\Flujo de procesamiento\Derived Column.Outputs[Derived Column Output].Columns[Ruta]"
+                          name="Ruta"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Expression"
+                              name="Expression">(DT_STR,100,1252)@[User::vFilePath]</property>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Friendly Expression"
+                              expressionType="Notify"
+                              name="FriendlyExpression">(DT_STR,100,1252)@[User::vFilePath]</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Flujo de procesamiento\Derived Column.Outputs[Derived Column Output].Columns[fechaCarga]"
+                          dataType="date"
+                          errorOrTruncationOperation="Computation"
+                          errorRowDisposition="FailComponent"
+                          lineageId="Package\Foreach Loop Container\Flujo de procesamiento\Derived Column.Outputs[Derived Column Output].Columns[fechaCarga]"
+                          name="fechaCarga"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Expression"
+                              name="Expression">@[System::StartTime]</property>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Friendly Expression"
+                              expressionType="Notify"
+                              name="FriendlyExpression">@[System::StartTime]</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\Foreach Loop Container\Flujo de procesamiento\Derived Column.Outputs[Derived Column Error Output]"
+                      description="Error Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Derived Column Error Output"
+                      synchronousInputId="Package\Foreach Loop Container\Flujo de procesamiento\Derived Column.Inputs[Derived Column Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Flujo de procesamiento\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Foreach Loop Container\Flujo de procesamiento\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Flujo de procesamiento\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Foreach Loop Container\Flujo de procesamiento\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Foreach Loop Container\Flujo de procesamiento\Excel Source"
+                  componentClassID="Microsoft.ExcelSource"
+                  contactInfo="Excel Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+                  description="Excel Source"
+                  name="Excel Source"
+                  usesDispositions="true"
+                  version="1">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">Hoja1$</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">0</property>
+                    <property
+                      dataType="System.String"
+                      description="The mapping from parameters in the SQL command to variables."
+                      name="ParameterMapping"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Foreach Loop Container\Flujo de procesamiento\Excel Source.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[Excel Connection Manager]"
+                      connectionManagerRefId="Package.ConnectionManagers[Excel Connection Manager]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\Foreach Loop Container\Flujo de procesamiento\Excel Source.Outputs[Excel Source Output]"
+                      name="Excel Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Flujo de procesamiento\Excel Source.Outputs[Excel Source Output].Columns[namePrensa]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Flujo de procesamiento\Excel Source.Outputs[Excel Source Output].ExternalColumns[namePrensa]"
+                          length="255"
+                          lineageId="Package\Foreach Loop Container\Flujo de procesamiento\Excel Source.Outputs[Excel Source Output].Columns[namePrensa]"
+                          name="namePrensa"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Flujo de procesamiento\Excel Source.Outputs[Excel Source Output].Columns[nameSensor]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Flujo de procesamiento\Excel Source.Outputs[Excel Source Output].ExternalColumns[nameSensor]"
+                          length="255"
+                          lineageId="Package\Foreach Loop Container\Flujo de procesamiento\Excel Source.Outputs[Excel Source Output].Columns[nameSensor]"
+                          name="nameSensor"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Flujo de procesamiento\Excel Source.Outputs[Excel Source Output].Columns[typeSensor]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Flujo de procesamiento\Excel Source.Outputs[Excel Source Output].ExternalColumns[typeSensor]"
+                          length="255"
+                          lineageId="Package\Foreach Loop Container\Flujo de procesamiento\Excel Source.Outputs[Excel Source Output].Columns[typeSensor]"
+                          name="typeSensor"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Flujo de procesamiento\Excel Source.Outputs[Excel Source Output].Columns[valueSensor]"
+                          dataType="r8"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Flujo de procesamiento\Excel Source.Outputs[Excel Source Output].ExternalColumns[valueSensor]"
+                          lineageId="Package\Foreach Loop Container\Flujo de procesamiento\Excel Source.Outputs[Excel Source Output].Columns[valueSensor]"
+                          name="valueSensor"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Flujo de procesamiento\Excel Source.Outputs[Excel Source Output].ExternalColumns[namePrensa]"
+                          dataType="wstr"
+                          length="255"
+                          name="namePrensa" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Flujo de procesamiento\Excel Source.Outputs[Excel Source Output].ExternalColumns[nameSensor]"
+                          dataType="wstr"
+                          length="255"
+                          name="nameSensor" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Flujo de procesamiento\Excel Source.Outputs[Excel Source Output].ExternalColumns[typeSensor]"
+                          dataType="wstr"
+                          length="255"
+                          name="typeSensor" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Flujo de procesamiento\Excel Source.Outputs[Excel Source Output].ExternalColumns[valueSensor]"
+                          dataType="r8"
+                          name="valueSensor" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\Foreach Loop Container\Flujo de procesamiento\Excel Source.Outputs[Excel Source Error Output]"
+                      isErrorOut="true"
+                      name="Excel Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Flujo de procesamiento\Excel Source.Outputs[Excel Source Error Output].Columns[namePrensa]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\Foreach Loop Container\Flujo de procesamiento\Excel Source.Outputs[Excel Source Error Output].Columns[namePrensa]"
+                          name="namePrensa" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Flujo de procesamiento\Excel Source.Outputs[Excel Source Error Output].Columns[nameSensor]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\Foreach Loop Container\Flujo de procesamiento\Excel Source.Outputs[Excel Source Error Output].Columns[nameSensor]"
+                          name="nameSensor" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Flujo de procesamiento\Excel Source.Outputs[Excel Source Error Output].Columns[typeSensor]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\Foreach Loop Container\Flujo de procesamiento\Excel Source.Outputs[Excel Source Error Output].Columns[typeSensor]"
+                          name="typeSensor" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Flujo de procesamiento\Excel Source.Outputs[Excel Source Error Output].Columns[valueSensor]"
+                          dataType="r8"
+                          lineageId="Package\Foreach Loop Container\Flujo de procesamiento\Excel Source.Outputs[Excel Source Error Output].Columns[valueSensor]"
+                          name="valueSensor" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Flujo de procesamiento\Excel Source.Outputs[Excel Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Foreach Loop Container\Flujo de procesamiento\Excel Source.Outputs[Excel Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Flujo de procesamiento\Excel Source.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Foreach Loop Container\Flujo de procesamiento\Excel Source.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Foreach Loop Container\Flujo de procesamiento\HTTP Requester"
+                  componentClassID="Microsoft.ManagedComponentHost"
+                  contactInfo="KingswaySoft Inc.; http://www.kingswaysoft.com; support@kingswaysoft.com; Copyright (c) 2011-2018 KingswaySoft Inc."
+                  description="Sends HTTP Requests and Downloads Responses."
+                  name="HTTP Requester"
+                  usesDispositions="true">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The action to take with the body of the http response."
+                      expressionType="Notify"
+                      name="ResponseOutputType"
+                      typeConverter="KingswaySoft.IntegrationToolkit.ProductivityPack.ResponseActionType, KingswaySoft.IntegrationToolkit.ProductivityPack, Version=1.0.2016.0, Culture=neutral, PublicKeyToken=705df8e0751bcea7">0</property>
+                    <property
+                      dataType="System.String"
+                      description="The HTTP Method to use when sending requests."
+                      expressionType="Notify"
+                      name="HttpMethod">POST</property>
+                    <property
+                      dataType="System.String"
+                      name="UserComponentTypeName">KingswaySoft.IntegrationToolkit.ProductivityPack.HttpRequesterComponent</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Foreach Loop Container\Flujo de procesamiento\HTTP Requester.Connections[HTTP (KingswaySoft)]"
+                      connectionManagerID="{BE1D07EA-A861-4C64-8B15-55139AB8ADD9}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[HTTPConnectionManager]"
+                      description="Connection manager for HTTP connections."
+                      name="HTTP (KingswaySoft)" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\Foreach Loop Container\Flujo de procesamiento\HTTP Requester.Inputs[Primary Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="Primary Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\Flujo de procesamiento\HTTP Requester.Inputs[Primary Input].Columns[MergedJson]"
+                          cachedDataType="nText"
+                          cachedName="MergedJson"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Flujo de procesamiento\HTTP Requester.Inputs[Primary Input].ExternalColumns[RequestBody]"
+                          lineageId="Package\Foreach Loop Container\Flujo de procesamiento\JSON Merge.Outputs[Default Output].Columns[MergedJson]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Flujo de procesamiento\HTTP Requester.Inputs[Primary Input].ExternalColumns[RelativePath]"
+                          dataType="wstr"
+                          length="255"
+                          name="RelativePath" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Flujo de procesamiento\HTTP Requester.Inputs[Primary Input].ExternalColumns[RequestBody]"
+                          dataType="wstr"
+                          length="255"
+                          name="RequestBody" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Flujo de procesamiento\HTTP Requester.Inputs[Primary Input].ExternalColumns[FilePath]"
+                          dataType="wstr"
+                          length="255"
+                          name="FilePath" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Foreach Loop Container\Flujo de procesamiento\HTTP Requester.Outputs[Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Error Output"
+                      synchronousInputId="Package\Foreach Loop Container\Flujo de procesamiento\HTTP Requester.Inputs[Primary Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Flujo de procesamiento\HTTP Requester.Outputs[Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Foreach Loop Container\Flujo de procesamiento\HTTP Requester.Outputs[Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Flujo de procesamiento\HTTP Requester.Outputs[Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Foreach Loop Container\Flujo de procesamiento\HTTP Requester.Outputs[Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Flujo de procesamiento\HTTP Requester.Outputs[Error Output].Columns[ErrorMessage]"
+                          dataType="wstr"
+                          length="2048"
+                          lineageId="Package\Foreach Loop Container\Flujo de procesamiento\HTTP Requester.Outputs[Error Output].Columns[ErrorMessage]"
+                          name="ErrorMessage" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\Foreach Loop Container\Flujo de procesamiento\HTTP Requester.Outputs[DefaultOutput]"
+                      exclusionGroup="1"
+                      name="DefaultOutput"
+                      synchronousInputId="Package\Foreach Loop Container\Flujo de procesamiento\HTTP Requester.Inputs[Primary Input]">
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Foreach Loop Container\Flujo de procesamiento\JSON Merge"
+                  componentClassID="Microsoft.ManagedComponentHost"
+                  contactInfo="KingswaySoft Inc.; http://www.kingswaysoft.com; support@kingswaysoft.com; Copyright (c) 2011-2018 KingswaySoft Inc."
+                  description="Create a JSON document from column data."
+                  name="JSON Merge"
+                  usesDispositions="true"
+                  validateExternalMetadata="False"
+                  version="6">
+                  <properties>
+                    <property
+                      dataType="System.String"
+                      name="Design">[{"IdentifierName":"Input2 (Excel Source)","JsonName":"Input2 (Excel Source)","IsInput":true,"JsonType":0,"StaticValue":null,"Children":[{"IdentifierName":"NombreFichero","JsonName":"NombreFichero","IsInput":false,"JsonType":3,"StaticValue":null,"Children":[]},{"IdentifierName":"Prensa","JsonName":"Prensa","IsInput":false,"JsonType":3,"StaticValue":null,"Children":[]},{"IdentifierName":"Ruta","JsonName":"Ruta","IsInput":false,"JsonType":3,"StaticValue":null,"Children":[]},{"IdentifierName":"Servidor","JsonName":"Servidor","IsInput":false,"JsonType":3,"StaticValue":null,"Children":[]},{"IdentifierName":"fechaCarga","JsonName":"fechaCarga","IsInput":false,"JsonType":3,"StaticValue":null,"Children":[]},{"IdentifierName":"namePrensa","JsonName":"namePrensa","IsInput":false,"JsonType":3,"StaticValue":null,"Children":[]},{"IdentifierName":"nameSensor","JsonName":"nameSensor","IsInput":false,"JsonType":3,"StaticValue":null,"Children":[]},{"IdentifierName":"typeSensor","JsonName":"typeSensor","IsInput":false,"JsonType":3,"StaticValue":null,"Children":[]},{"IdentifierName":"valueSensor","JsonName":"valueSensor","IsInput":false,"JsonType":3,"StaticValue":null,"Children":[]}]}]</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="When true the output XML has line breaks and indents for human readability. When false the output XML is a single line of text."
+                      expressionType="Notify"
+                      name="PrintPretty">true</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the max size of JSON document to output."
+                      expressionType="Notify"
+                      name="MergeMode"
+                      typeConverter="KingswaySoft.IntegrationToolkit.ProductivityPack.DocumentMergeMode">2</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the null mode to use."
+                      expressionType="Notify"
+                      name="NullMode"
+                      typeConverter="KingswaySoft.IntegrationToolkit.ProductivityPack.JsonMergeNullMode">0</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the batch size for 'Every Batch' Merge Mode."
+                      expressionType="Notify"
+                      name="BatchSize">1000</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="When true the merged JSON will be wrapped by a root JSON object (curly braces) allowing for the names of the root JSON items to be included in the merge. When set to false only the first root node is merged and the name is ignored to ensure the merged JSON is valid."
+                      expressionType="Notify"
+                      name="AddWrappingRootNode">false</property>
+                    <property
+                      containsID="true"
+                      dataType="System.Int32"
+                      description="The name of the output column to direct the merged  to."
+                      expressionType="Notify"
+                      name="OutputColumnId">#{Package\Foreach Loop Container\Flujo de procesamiento\JSON Merge.Outputs[Default Output].Columns[MergedJson]}</property>
+                    <property
+                      dataType="System.String"
+                      name="UserComponentTypeName">KingswaySoft.IntegrationToolkit.ProductivityPack.JsonMergeComponent</property>
+                  </properties>
+                  <inputs>
+                    <input
+                      refId="Package\Foreach Loop Container\Flujo de procesamiento\JSON Merge.Inputs[Input2 (Excel Source)]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      name="Input2 (Excel Source)">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="InputBounds">240,20,200,225</property>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          name="ParentId">#{Package\Foreach Loop Container\Flujo de procesamiento\-1:invalid}</property>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          name="ParentColumnId">#{Package\Foreach Loop Container\Flujo de procesamiento\-1:invalid}</property>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          name="IdField">#{Package\Foreach Loop Container\Flujo de procesamiento\-1:invalid}</property>
+                      </properties>
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\Flujo de procesamiento\JSON Merge.Inputs[Input2 (Excel Source)].Columns[namePrensa]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="namePrensa"
+                          lineageId="Package\Foreach Loop Container\Flujo de procesamiento\Excel Source.Outputs[Excel Source Output].Columns[namePrensa]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              name="AsyncExternalMetaDataColumnID">#{Package\Foreach Loop Container\Flujo de procesamiento\JSON Merge.Inputs[Input2 (Excel Source)].ExternalColumns[namePrensa]}</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\Flujo de procesamiento\JSON Merge.Inputs[Input2 (Excel Source)].Columns[nameSensor]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="nameSensor"
+                          lineageId="Package\Foreach Loop Container\Flujo de procesamiento\Excel Source.Outputs[Excel Source Output].Columns[nameSensor]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              name="AsyncExternalMetaDataColumnID">#{Package\Foreach Loop Container\Flujo de procesamiento\JSON Merge.Inputs[Input2 (Excel Source)].ExternalColumns[nameSensor]}</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\Flujo de procesamiento\JSON Merge.Inputs[Input2 (Excel Source)].Columns[typeSensor]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="typeSensor"
+                          lineageId="Package\Foreach Loop Container\Flujo de procesamiento\Excel Source.Outputs[Excel Source Output].Columns[typeSensor]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              name="AsyncExternalMetaDataColumnID">#{Package\Foreach Loop Container\Flujo de procesamiento\JSON Merge.Inputs[Input2 (Excel Source)].ExternalColumns[typeSensor]}</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\Flujo de procesamiento\JSON Merge.Inputs[Input2 (Excel Source)].Columns[valueSensor]"
+                          cachedDataType="r8"
+                          cachedName="valueSensor"
+                          lineageId="Package\Foreach Loop Container\Flujo de procesamiento\Excel Source.Outputs[Excel Source Output].Columns[valueSensor]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              name="AsyncExternalMetaDataColumnID">#{Package\Foreach Loop Container\Flujo de procesamiento\JSON Merge.Inputs[Input2 (Excel Source)].ExternalColumns[valueSensor]}</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\Flujo de procesamiento\JSON Merge.Inputs[Input2 (Excel Source)].Columns[NombreFichero]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="100"
+                          cachedName="NombreFichero"
+                          lineageId="Package\Foreach Loop Container\Flujo de procesamiento\Derived Column.Outputs[Derived Column Output].Columns[NombreFichero]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              name="AsyncExternalMetaDataColumnID">#{Package\Foreach Loop Container\Flujo de procesamiento\JSON Merge.Inputs[Input2 (Excel Source)].ExternalColumns[NombreFichero]}</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\Flujo de procesamiento\JSON Merge.Inputs[Input2 (Excel Source)].Columns[Prensa]"
+                          cachedDataType="i4"
+                          cachedName="Prensa"
+                          lineageId="Package\Foreach Loop Container\Flujo de procesamiento\Derived Column.Outputs[Derived Column Output].Columns[Prensa]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              name="AsyncExternalMetaDataColumnID">#{Package\Foreach Loop Container\Flujo de procesamiento\JSON Merge.Inputs[Input2 (Excel Source)].ExternalColumns[Prensa]}</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\Flujo de procesamiento\JSON Merge.Inputs[Input2 (Excel Source)].Columns[Servidor]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="100"
+                          cachedName="Servidor"
+                          lineageId="Package\Foreach Loop Container\Flujo de procesamiento\Derived Column.Outputs[Derived Column Output].Columns[Servidor]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              name="AsyncExternalMetaDataColumnID">#{Package\Foreach Loop Container\Flujo de procesamiento\JSON Merge.Inputs[Input2 (Excel Source)].ExternalColumns[Servidor]}</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\Flujo de procesamiento\JSON Merge.Inputs[Input2 (Excel Source)].Columns[Ruta]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="100"
+                          cachedName="Ruta"
+                          lineageId="Package\Foreach Loop Container\Flujo de procesamiento\Derived Column.Outputs[Derived Column Output].Columns[Ruta]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              name="AsyncExternalMetaDataColumnID">#{Package\Foreach Loop Container\Flujo de procesamiento\JSON Merge.Inputs[Input2 (Excel Source)].ExternalColumns[Ruta]}</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\Flujo de procesamiento\JSON Merge.Inputs[Input2 (Excel Source)].Columns[fechaCarga]"
+                          cachedDataType="date"
+                          cachedName="fechaCarga"
+                          lineageId="Package\Foreach Loop Container\Flujo de procesamiento\Derived Column.Outputs[Derived Column Output].Columns[fechaCarga]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              name="AsyncExternalMetaDataColumnID">#{Package\Foreach Loop Container\Flujo de procesamiento\JSON Merge.Inputs[Input2 (Excel Source)].ExternalColumns[fechaCarga]}</property>
+                          </properties>
+                        </inputColumn>
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Flujo de procesamiento\JSON Merge.Inputs[Input2 (Excel Source)].ExternalColumns[namePrensa]"
+                          dataType="wstr"
+                          length="255"
+                          name="namePrensa" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Flujo de procesamiento\JSON Merge.Inputs[Input2 (Excel Source)].ExternalColumns[nameSensor]"
+                          dataType="wstr"
+                          length="255"
+                          name="nameSensor" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Flujo de procesamiento\JSON Merge.Inputs[Input2 (Excel Source)].ExternalColumns[typeSensor]"
+                          dataType="wstr"
+                          length="255"
+                          name="typeSensor" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Flujo de procesamiento\JSON Merge.Inputs[Input2 (Excel Source)].ExternalColumns[valueSensor]"
+                          dataType="r8"
+                          name="valueSensor" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Flujo de procesamiento\JSON Merge.Inputs[Input2 (Excel Source)].ExternalColumns[NombreFichero]"
+                          dataType="str"
+                          length="100"
+                          name="NombreFichero" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Flujo de procesamiento\JSON Merge.Inputs[Input2 (Excel Source)].ExternalColumns[Prensa]"
+                          dataType="i4"
+                          name="Prensa" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Flujo de procesamiento\JSON Merge.Inputs[Input2 (Excel Source)].ExternalColumns[Servidor]"
+                          dataType="str"
+                          length="100"
+                          name="Servidor" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Flujo de procesamiento\JSON Merge.Inputs[Input2 (Excel Source)].ExternalColumns[Ruta]"
+                          dataType="str"
+                          length="100"
+                          name="Ruta" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Flujo de procesamiento\JSON Merge.Inputs[Input2 (Excel Source)].ExternalColumns[fechaCarga]"
+                          dataType="date"
+                          name="fechaCarga" />
+                      </externalMetadataColumns>
+                    </input>
+                    <input
+                      refId="Package\Foreach Loop Container\Flujo de procesamiento\JSON Merge.Inputs[Input1]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      name="Input1">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="InputBounds">20,20,200,225</property>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          name="ParentId">#{Package\Foreach Loop Container\Flujo de procesamiento\-1:invalid}</property>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          name="ParentColumnId">#{Package\Foreach Loop Container\Flujo de procesamiento\-1:invalid}</property>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          name="IdField">#{Package\Foreach Loop Container\Flujo de procesamiento\-1:invalid}</property>
+                      </properties>
+                      <externalMetadataColumns
+                        isUsed="True" />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Foreach Loop Container\Flujo de procesamiento\JSON Merge.Outputs[Error Output]"
+                      isErrorOut="true"
+                      name="Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Flujo de procesamiento\JSON Merge.Outputs[Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Foreach Loop Container\Flujo de procesamiento\JSON Merge.Outputs[Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Flujo de procesamiento\JSON Merge.Outputs[Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Foreach Loop Container\Flujo de procesamiento\JSON Merge.Outputs[Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Flujo de procesamiento\JSON Merge.Outputs[Error Output].Columns[ColumnName]"
+                          dataType="wstr"
+                          length="4000"
+                          lineageId="Package\Foreach Loop Container\Flujo de procesamiento\JSON Merge.Outputs[Error Output].Columns[ColumnName]"
+                          name="ColumnName" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Flujo de procesamiento\JSON Merge.Outputs[Error Output].Columns[ParentId]"
+                          dataType="wstr"
+                          length="4000"
+                          lineageId="Package\Foreach Loop Container\Flujo de procesamiento\JSON Merge.Outputs[Error Output].Columns[ParentId]"
+                          name="ParentId" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Flujo de procesamiento\JSON Merge.Outputs[Error Output].Columns[Input]"
+                          dataType="wstr"
+                          length="4000"
+                          lineageId="Package\Foreach Loop Container\Flujo de procesamiento\JSON Merge.Outputs[Error Output].Columns[Input]"
+                          name="Input" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Flujo de procesamiento\JSON Merge.Outputs[Error Output].Columns[ParentInput]"
+                          dataType="wstr"
+                          length="4000"
+                          lineageId="Package\Foreach Loop Container\Flujo de procesamiento\JSON Merge.Outputs[Error Output].Columns[ParentInput]"
+                          name="ParentInput" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Flujo de procesamiento\JSON Merge.Outputs[Error Output].Columns[ErrorMessage]"
+                          dataType="wstr"
+                          length="4000"
+                          lineageId="Package\Foreach Loop Container\Flujo de procesamiento\JSON Merge.Outputs[Error Output].Columns[ErrorMessage]"
+                          name="ErrorMessage" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\Foreach Loop Container\Flujo de procesamiento\JSON Merge.Outputs[Default Output]"
+                      name="Default Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Flujo de procesamiento\JSON Merge.Outputs[Default Output].Columns[MergedJson]"
+                          dataType="nText"
+                          lineageId="Package\Foreach Loop Container\Flujo de procesamiento\JSON Merge.Outputs[Default Output].Columns[MergedJson]"
+                          name="MergedJson" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\Foreach Loop Container\Flujo de procesamiento.Paths[Default Output]"
+                  endId="Package\Foreach Loop Container\Flujo de procesamiento\HTTP Requester.Inputs[Primary Input]"
+                  name="Default Output"
+                  startId="Package\Foreach Loop Container\Flujo de procesamiento\JSON Merge.Outputs[Default Output]" />
+                <path
+                  refId="Package\Foreach Loop Container\Flujo de procesamiento.Paths[Derived Column Output]"
+                  endId="Package\Foreach Loop Container\Flujo de procesamiento\JSON Merge.Inputs[Input2 (Excel Source)]"
+                  name="Derived Column Output"
+                  startId="Package\Foreach Loop Container\Flujo de procesamiento\Derived Column.Outputs[Derived Column Output]" />
+                <path
+                  refId="Package\Foreach Loop Container\Flujo de procesamiento.Paths[Excel Source Output]"
+                  endId="Package\Foreach Loop Container\Flujo de procesamiento\Derived Column.Inputs[Derived Column Input]"
+                  name="Excel Source Output"
+                  startId="Package\Foreach Loop Container\Flujo de procesamiento\Excel Source.Outputs[Excel Source Output]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Foreach Loop Container\MOVER NO OK"
+          DTS:CreationName="Microsoft.FileSystemTask"
+          DTS:Description="File System Task"
+          DTS:DTSID="{55314a02-6aed-4885-a137-d486be858720}"
+          DTS:ExecutableType="Microsoft.FileSystemTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="MOVER NO OK"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <FileSystemData
+              TaskOperationType="MoveFile"
+              TaskOverwriteDestFile="True"
+              TaskSourcePath="User::vFileName"
+              TaskIsSourceVariable="True"
+              TaskDestinationPath="PROCESADOS ERROR" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Foreach Loop Container\MOVER OK"
+          DTS:CreationName="Microsoft.FileSystemTask"
+          DTS:DelayValidation="True"
+          DTS:Description="File System Task"
+          DTS:DTSID="{6CE4194A-7D22-4D9F-9ABD-80EAA90A96E2}"
+          DTS:ExecutableType="Microsoft.FileSystemTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="MOVER OK"
+          DTS:ThreadHint="1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <FileSystemData
+              TaskOperationType="MoveFile"
+              TaskOverwriteDestFile="True"
+              TaskSourcePath="User::vFileName"
+              TaskIsSourceVariable="True"
+              TaskDestinationPath="PROCESADOS OK" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Foreach Loop Container.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{F0316CA5-6959-445A-AFF2-471897540FBB}"
+          DTS:From="Package\Foreach Loop Container\Flujo de procesamiento"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\Foreach Loop Container\MOVER OK" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Foreach Loop Container.PrecedenceConstraints[Constraint 1]"
+          DTS:CreationName=""
+          DTS:DTSID="{B7F3E08A-A8DD-4F68-8C63-AB5CD9E66CD9}"
+          DTS:From="Package\Foreach Loop Container\Flujo de procesamiento"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 1"
+          DTS:To="Package\Foreach Loop Container\MOVER NO OK"
+          DTS:Value="1" />
+      </DTS:PrecedenceConstraints>
+      <DTS:ForEachVariableMappings>
+        <DTS:ForEachVariableMapping
+          DTS:CreationName=""
+          DTS:DTSID="{AA555444-3439-400C-84D9-069CF49C338E}"
+          DTS:ObjectName="{AA555444-3439-400C-84D9-069CF49C338E}"
+          DTS:ValueIndex="0"
+          DTS:VariableName="User::vFileName" />
+      </DTS:ForEachVariableMappings>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="158,42"
+          Id="Package\Foreach Loop Container\MOVER NO OK"
+          TopLeft="243,58" />
+        <NodeLayout
+          Size="189,42"
+          Id="Package\Foreach Loop Container\Flujo de procesamiento"
+          TopLeft="22,20" />
+        <NodeLayout
+          Size="131,42"
+          Id="Package\Foreach Loop Container\MOVER OK"
+          TopLeft="46,102" />
+        <EdgeLayout
+          Id="Package\Foreach Loop Container.PrecedenceConstraints[Constraint]"
+          TopLeft="114,62">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,40"
+              Start="0,0"
+              End="0,32.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,32.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Foreach Loop Container.PrecedenceConstraints[Constraint 1]"
+          TopLeft="211,41">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="32,38"
+              Start="0,0"
+              End="24.5,38">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="12,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="12,0"
+                    Point2="16,0"
+                    Point3="16,4" />
+                  <mssgle:LineSegment
+                    End="16,34" />
+                  <mssgle:CubicBezierSegment
+                    Point1="16,34"
+                    Point2="16,38"
+                    Point3="20,38" />
+                  <mssgle:LineSegment
+                    End="24.5,38" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0.758652343750001,-15.7490234375,30.4826953125,9.7490234375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="427,203"
+          Size="427,246"
+          Id="Package\Foreach Loop Container"
+          TopLeft="119,58" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Foreach Loop Container\Flujo de procesamiento">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="155,42"
+          Id="Package\Foreach Loop Container\Flujo de procesamiento\HTTP Requester"
+          TopLeft="121,344" />
+        <NodeLayout
+          Size="137,42"
+          Id="Package\Foreach Loop Container\Flujo de procesamiento\JSON Merge"
+          TopLeft="131,243" />
+        <NodeLayout
+          Size="139,42"
+          Id="Package\Foreach Loop Container\Flujo de procesamiento\Excel Source"
+          TopLeft="130,28" />
+        <NodeLayout
+          Size="154,42"
+          Id="Package\Foreach Loop Container\Flujo de procesamiento\Derived Column"
+          TopLeft="116,148" />
+        <EdgeLayout
+          Id="Package\Foreach Loop Container\Flujo de procesamiento.Paths[Excel Source Output]"
+          TopLeft="196.25,70">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,78"
+              Start="0,0"
+              End="0,70.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,70.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Foreach Loop Container\Flujo de procesamiento.Paths[Derived Column Output]"
+          TopLeft="196.25,190">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,53"
+              Start="0,0"
+              End="0,45.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,45.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Foreach Loop Container\Flujo de procesamiento.Paths[Default Output]"
+          TopLeft="199,285">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,59"
+              Start="0,0"
+              End="0,51.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,51.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-8,17.75,16,16"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Foreach Loop Container\Flujo de procesamiento\Excel Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

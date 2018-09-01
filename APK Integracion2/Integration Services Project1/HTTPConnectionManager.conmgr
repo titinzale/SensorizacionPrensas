@@ -1,0 +1,10 @@
+﻿<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="HTTPConnectionManager"
+  DTS:DTSID="{BE1D07EA-A861-4C64-8B15-55139AB8ADD9}"
+  DTS:CreationName="HTTP (KingswaySoft)">
+  <DTS:ObjectData>
+    <ConnectionManager
+      ConnectionString="BaseUrl=http://localhost:3001/api/sensor;AuthenticationMode=None;PathToTokenFile=;AccessTokenRequestLocation=HttpHeader;Domain=;UserName=;ProxyMode=NoProxy;ProxyUsername=;ProxyServer=;ProxyServerPort=0;ThrottleRate=0;ServiceTimeout=120;RetryOnIntermittentErrors=True;ChunkSize=0;CertificateLocation=Store;CertificateSubject=;PathToCertificate=;IgnoreCertificateErrors=False;CustomHeaders='{&#xA;  &quot;Content-Type&quot;: {&#xA;    &quot;value&quot;: &quot;application/json&quot;&#xA;  },&#xA;  &quot;authorization&quot;: {&#xA;    &quot;value&quot;: &quot;Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.e30.VBJoQTtrvM8juPdTN-vemW5UHFGjCVthTtYOpgVyneQ&quot;&#xA;  }&#xA;}';HttpMethod=POST" />
+  </DTS:ObjectData>
+</DTS:ConnectionManager>

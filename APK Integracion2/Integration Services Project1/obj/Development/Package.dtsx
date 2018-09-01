@@ -1,0 +1,785 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="7/18/2018 1:24:41 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="ALAREPOZMI_P"
+  DTS:CreatorName="ALIBERICO\AREPOZMI"
+  DTS:DTSID="{D5E5211B-60AA-471F-A316-BC0639797BCB}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="14.0.0800.60"
+  DTS:LocaleID="3082"
+  DTS:ObjectName="Package"
+  DTS:PackageType="5"
+  DTS:VersionBuild="10"
+  DTS:VersionGUID="{7C62451D-5A86-487E-A452-C8F254790839}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Data Flow Task"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{6FAD75D8-51E5-4C20-A1B1-579F5F650A49}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Data Flow Task"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Data Flow Task\Flat File Destination"
+              componentClassID="Microsoft.FlatFileDestination"
+              contactInfo="Flat File Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Flat File Destination"
+              localeId="3082"
+              name="Flat File Destination">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether the data will overwrite or append to the destination file."
+                  name="Overwrite">true</property>
+                <property
+                  dataType="System.Null"
+                  description="Specifies the text to write to the destination file before any data is written."
+                  expressionType="Notify"
+                  name="Header" />
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task\Flat File Destination.Connections[FlatFileConnection]"
+                  connectionManagerID="{0756D534-B0BF-4B69-8754-9AFC2275D99B}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[Flat File Connection Manager]"
+                  name="FlatFileConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task\Flat File Destination.Inputs[Flat File Destination Input]"
+                  hasSideEffects="true"
+                  name="Flat File Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task\Flat File Destination.Inputs[Flat File Destination Input].Columns[namePrensa]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="namePrensa"
+                      externalMetadataColumnId="Package\Data Flow Task\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[namePrensa]"
+                      lineageId="Package\Data Flow Task\JSON Destination.Outputs[Default Output].Columns[namePrensa]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Flat File Destination.Inputs[Flat File Destination Input].Columns[nameSensor]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="nameSensor"
+                      externalMetadataColumnId="Package\Data Flow Task\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[nameSensor]"
+                      lineageId="Package\Data Flow Task\JSON Destination.Outputs[Default Output].Columns[nameSensor]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Flat File Destination.Inputs[Flat File Destination Input].Columns[typeSensor]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="typeSensor"
+                      externalMetadataColumnId="Package\Data Flow Task\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[typeSensor]"
+                      lineageId="Package\Data Flow Task\JSON Destination.Outputs[Default Output].Columns[typeSensor]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Flat File Destination.Inputs[Flat File Destination Input].Columns[valueSensor]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="valueSensor"
+                      externalMetadataColumnId="Package\Data Flow Task\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[valueSensor]"
+                      lineageId="Package\Data Flow Task\JSON Destination.Outputs[Default Output].Columns[valueSensor]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Flat File Destination.Inputs[Flat File Destination Input].Columns[HttpResponseCode]"
+                      cachedDataType="i4"
+                      cachedName="HttpResponseCode"
+                      externalMetadataColumnId="Package\Data Flow Task\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[HttpResponseCode]"
+                      lineageId="Package\Data Flow Task\JSON Destination.Outputs[Default Output].Columns[HttpResponseCode]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Flat File Destination.Inputs[Flat File Destination Input].Columns[HttpResponseCodeName]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="HttpResponseCodeName"
+                      externalMetadataColumnId="Package\Data Flow Task\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[HttpResponseCodeName]"
+                      lineageId="Package\Data Flow Task\JSON Destination.Outputs[Default Output].Columns[HttpResponseCodeName]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[namePrensa]"
+                      dataType="wstr"
+                      length="255"
+                      name="namePrensa" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[nameSensor]"
+                      dataType="wstr"
+                      length="255"
+                      name="nameSensor" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[typeSensor]"
+                      dataType="wstr"
+                      length="255"
+                      name="typeSensor" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[valueSensor]"
+                      dataType="wstr"
+                      length="255"
+                      name="valueSensor" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[HttpBody]"
+                      dataType="nText"
+                      name="HttpBody" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[HttpResponseCode]"
+                      dataType="i4"
+                      name="HttpResponseCode" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[HttpResponseCodeName]"
+                      dataType="wstr"
+                      length="255"
+                      name="HttpResponseCodeName" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task\JSON Destination"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="KingswaySoft Inc.; http://www.kingswaysoft.com; support@kingswaysoft.com; Copyright (c) 2011-2018 KingswaySoft Inc."
+              description="Create a JSON document from column data and send it in an HTTP request or save it to a file."
+              name="JSON Destination"
+              usesDispositions="true"
+              validateExternalMetadata="False"
+              version="3">
+              <properties>
+                <property
+                  dataType="System.String"
+                  name="Design">[{"JsonName":"Input1 (Premium Excel Source)","IdentifierName":"Input1 (Premium Excel Source)","JsonType":0,"IsInput":true,"StaticValue":null,"Children":[{"JsonName":"namePrensa","IdentifierName":"namePrensa","JsonType":3,"IsInput":false,"StaticValue":null,"Children":[]},{"JsonName":"nameSensor","IdentifierName":"nameSensor","JsonType":3,"IsInput":false,"StaticValue":null,"Children":[]},{"JsonName":"typeSensor","IdentifierName":"typeSensor","JsonType":3,"IsInput":false,"StaticValue":null,"Children":[]},{"JsonName":"valueSensor","IdentifierName":"valueSensor","JsonType":3,"IsInput":false,"StaticValue":null,"Children":[]}]}]</property>
+                <property
+                  dataType="System.Boolean"
+                  description="When true the output XML has line breaks and indents for human readability. When false the output XML is a single line of text."
+                  expressionType="Notify"
+                  name="PrintPretty">true</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the max size of JSON document to output."
+                  expressionType="Notify"
+                  name="MergeMode"
+                  typeConverter="KingswaySoft.IntegrationToolkit.ProductivityPack.DocumentMergeMode, KingswaySoft.IntegrationToolkit.ProductivityPack, Version=1.0.2017.0, Culture=neutral, PublicKeyToken=705df8e0751bcea7">2</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the null mode to use."
+                  expressionType="Notify"
+                  name="NullMode"
+                  typeConverter="KingswaySoft.IntegrationToolkit.ProductivityPack.JsonMergeNullMode, KingswaySoft.IntegrationToolkit.ProductivityPack, Version=1.0.2017.0, Culture=neutral, PublicKeyToken=705df8e0751bcea7">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the batch size for 'Every Batch' Merge Mode."
+                  expressionType="Notify"
+                  name="BatchSize">1000</property>
+                <property
+                  dataType="System.Boolean"
+                  description="When true the merged JSON will be wrapped by a root JSON object (curly braces) allowing for the names of the root JSON items to be included in the merge. When set to false only the first root node is merged and the name is ignored to ensure the merged JSON is valid."
+                  expressionType="Notify"
+                  name="AddWrappingRootNode">false</property>
+                <property
+                  dataType="System.String"
+                  description="The relative path of the HTTP request that will be combined with the base path from the connection manager."
+                  expressionType="Notify"
+                  name="RelativePath">{"IsExpression":false,"Value":"/sensor"}</property>
+                <property
+                  dataType="System.String"
+                  description="The body of the HTTP request."
+                  expressionType="Notify"
+                  name="RequestBody">{"IsExpression":false,"Value":"@[MergedJson]"}</property>
+                <property
+                  dataType="System.String"
+                  description="The headers that will be used in the request."
+                  expressionType="Notify"
+                  name="RequestHeaders">[]</property>
+                <property
+                  dataType="System.String"
+                  description="The query string parameters that will be used in the request."
+                  expressionType="Notify"
+                  name="RequestQueryStringParameters">[]</property>
+                <property
+                  dataType="System.Null"
+                  description="The base path for output column values."
+                  expressionType="Notify"
+                  name="BasePath" />
+                <property
+                  dataType="System.String"
+                  description="The item key for output column values."
+                  expressionType="Notify"
+                  name="ItemKey"></property>
+                <property
+                  dataType="System.String"
+                  description="The HTTP Method to use when sending requests."
+                  expressionType="Notify"
+                  name="HttpMethod">POST</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the path to the Item to get the json document from."
+                  expressionType="Notify"
+                  name="LocalFilePath">{"IsExpression":false,"Value":""}</property>
+                <property
+                  dataType="System.String"
+                  description="The encoding that will be used to read the json document."
+                  expressionType="Notify"
+                  name="LocalFileEncoding">Unicode (UTF-8)</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">KingswaySoft.IntegrationToolkit.ProductivityPack.JsonDestinationComponent, KingswaySoft.IntegrationToolkit.ProductivityPack, Version=1.0.2017.0, Culture=neutral, PublicKeyToken=705df8e0751bcea7</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task\JSON Destination.Connections[HTTP (KingswaySoft)]"
+                  connectionManagerID="{BE1D07EA-A861-4C64-8B15-55139AB8ADD9}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[HTTPConnectionManager]"
+                  description="ProductivityPack"
+                  name="HTTP (KingswaySoft)" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task\JSON Destination.Inputs[Input1 (Premium Excel Source)]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  name="Input1 (Premium Excel Source)">
+                  <properties>
+                    <property
+                      dataType="System.String"
+                      name="InputBounds">20,20,200,225</property>
+                    <property
+                      containsID="true"
+                      dataType="System.Int32"
+                      name="ParentId">#{Package\Data Flow Task\-1:invalid}</property>
+                    <property
+                      containsID="true"
+                      dataType="System.Int32"
+                      name="ParentColumnId">#{Package\Data Flow Task\-1:invalid}</property>
+                    <property
+                      containsID="true"
+                      dataType="System.Int32"
+                      name="IdField">#{Package\Data Flow Task\-1:invalid}</property>
+                  </properties>
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task\JSON Destination.Inputs[Input1 (Premium Excel Source)].Columns[namePrensa]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="namePrensa"
+                      lineageId="Package\Data Flow Task\Premium Excel Source.Outputs[Default Output].Columns[namePrensa]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          name="AsyncExternalMetaDataColumnID">#{Package\Data Flow Task\JSON Destination.Inputs[Input1 (Premium Excel Source)].ExternalColumns[namePrensa]}</property>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The asynchronous output column of this input column."
+                          name="AsyncOutputColumnID">#{Package\Data Flow Task\JSON Destination.Outputs[Default Output].Columns[namePrensa]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Data Flow Task\JSON Destination.Inputs[Input1 (Premium Excel Source)].Columns[nameSensor]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="nameSensor"
+                      lineageId="Package\Data Flow Task\Premium Excel Source.Outputs[Default Output].Columns[nameSensor]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          name="AsyncExternalMetaDataColumnID">#{Package\Data Flow Task\JSON Destination.Inputs[Input1 (Premium Excel Source)].ExternalColumns[nameSensor]}</property>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The asynchronous output column of this input column."
+                          name="AsyncOutputColumnID">#{Package\Data Flow Task\JSON Destination.Outputs[Default Output].Columns[nameSensor]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Data Flow Task\JSON Destination.Inputs[Input1 (Premium Excel Source)].Columns[typeSensor]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="typeSensor"
+                      lineageId="Package\Data Flow Task\Premium Excel Source.Outputs[Default Output].Columns[typeSensor]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          name="AsyncExternalMetaDataColumnID">#{Package\Data Flow Task\JSON Destination.Inputs[Input1 (Premium Excel Source)].ExternalColumns[typeSensor]}</property>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The asynchronous output column of this input column."
+                          name="AsyncOutputColumnID">#{Package\Data Flow Task\JSON Destination.Outputs[Default Output].Columns[typeSensor]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Data Flow Task\JSON Destination.Inputs[Input1 (Premium Excel Source)].Columns[valueSensor]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="valueSensor"
+                      lineageId="Package\Data Flow Task\Premium Excel Source.Outputs[Default Output].Columns[valueSensor]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          name="AsyncExternalMetaDataColumnID">#{Package\Data Flow Task\JSON Destination.Inputs[Input1 (Premium Excel Source)].ExternalColumns[valueSensor]}</property>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The asynchronous output column of this input column."
+                          name="AsyncOutputColumnID">#{Package\Data Flow Task\JSON Destination.Outputs[Default Output].Columns[valueSensor]}</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\JSON Destination.Inputs[Input1 (Premium Excel Source)].ExternalColumns[namePrensa]"
+                      dataType="wstr"
+                      length="255"
+                      name="namePrensa" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\JSON Destination.Inputs[Input1 (Premium Excel Source)].ExternalColumns[nameSensor]"
+                      dataType="wstr"
+                      length="255"
+                      name="nameSensor" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\JSON Destination.Inputs[Input1 (Premium Excel Source)].ExternalColumns[typeSensor]"
+                      dataType="wstr"
+                      length="255"
+                      name="typeSensor" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\JSON Destination.Inputs[Input1 (Premium Excel Source)].ExternalColumns[valueSensor]"
+                      dataType="wstr"
+                      length="255"
+                      name="valueSensor" />
+                  </externalMetadataColumns>
+                </input>
+                <input
+                  refId="Package\Data Flow Task\JSON Destination.Inputs[Input2]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  name="Input2">
+                  <properties>
+                    <property
+                      dataType="System.String"
+                      name="InputBounds">240,20,200,225</property>
+                    <property
+                      containsID="true"
+                      dataType="System.Int32"
+                      name="ParentId">#{Package\Data Flow Task\-1:invalid}</property>
+                    <property
+                      containsID="true"
+                      dataType="System.Int32"
+                      name="ParentColumnId">#{Package\Data Flow Task\-1:invalid}</property>
+                    <property
+                      containsID="true"
+                      dataType="System.Int32"
+                      name="IdField">#{Package\Data Flow Task\-1:invalid}</property>
+                  </properties>
+                  <externalMetadataColumns
+                    isUsed="True" />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\JSON Destination.Outputs[Error Output]"
+                  isErrorOut="true"
+                  name="Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\JSON Destination.Outputs[Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\JSON Destination.Outputs[Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\JSON Destination.Outputs[Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\JSON Destination.Outputs[Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\JSON Destination.Outputs[Error Output].Columns[ColumnName]"
+                      dataType="wstr"
+                      length="4000"
+                      lineageId="Package\Data Flow Task\JSON Destination.Outputs[Error Output].Columns[ColumnName]"
+                      name="ColumnName" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\JSON Destination.Outputs[Error Output].Columns[ParentId]"
+                      dataType="wstr"
+                      length="4000"
+                      lineageId="Package\Data Flow Task\JSON Destination.Outputs[Error Output].Columns[ParentId]"
+                      name="ParentId" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\JSON Destination.Outputs[Error Output].Columns[Input]"
+                      dataType="wstr"
+                      length="4000"
+                      lineageId="Package\Data Flow Task\JSON Destination.Outputs[Error Output].Columns[Input]"
+                      name="Input" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\JSON Destination.Outputs[Error Output].Columns[ParentInput]"
+                      dataType="wstr"
+                      length="4000"
+                      lineageId="Package\Data Flow Task\JSON Destination.Outputs[Error Output].Columns[ParentInput]"
+                      name="ParentInput" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\JSON Destination.Outputs[Error Output].Columns[ErrorMessage]"
+                      dataType="wstr"
+                      length="4000"
+                      lineageId="Package\Data Flow Task\JSON Destination.Outputs[Error Output].Columns[ErrorMessage]"
+                      name="ErrorMessage" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\JSON Destination.Outputs[Error Output].Columns[HttpBody]"
+                      dataType="nText"
+                      lineageId="Package\Data Flow Task\JSON Destination.Outputs[Error Output].Columns[HttpBody]"
+                      name="HttpBody" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\JSON Destination.Outputs[Error Output].Columns[HttpResponseCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\JSON Destination.Outputs[Error Output].Columns[HttpResponseCode]"
+                      name="HttpResponseCode" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\JSON Destination.Outputs[Error Output].Columns[HttpResponseCodeName]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Data Flow Task\JSON Destination.Outputs[Error Output].Columns[HttpResponseCodeName]"
+                      name="HttpResponseCodeName" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Data Flow Task\JSON Destination.Outputs[Default Output]"
+                  name="Default Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\JSON Destination.Outputs[Default Output].Columns[namePrensa]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="255"
+                      lineageId="Package\Data Flow Task\JSON Destination.Outputs[Default Output].Columns[namePrensa]"
+                      name="namePrensa"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\JSON Destination.Outputs[Default Output].Columns[nameSensor]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="255"
+                      lineageId="Package\Data Flow Task\JSON Destination.Outputs[Default Output].Columns[nameSensor]"
+                      name="nameSensor"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\JSON Destination.Outputs[Default Output].Columns[typeSensor]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="255"
+                      lineageId="Package\Data Flow Task\JSON Destination.Outputs[Default Output].Columns[typeSensor]"
+                      name="typeSensor"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\JSON Destination.Outputs[Default Output].Columns[valueSensor]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="255"
+                      lineageId="Package\Data Flow Task\JSON Destination.Outputs[Default Output].Columns[valueSensor]"
+                      name="valueSensor"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\JSON Destination.Outputs[Default Output].Columns[HttpBody]"
+                      dataType="nText"
+                      lineageId="Package\Data Flow Task\JSON Destination.Outputs[Default Output].Columns[HttpBody]"
+                      name="HttpBody" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\JSON Destination.Outputs[Default Output].Columns[HttpResponseCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\JSON Destination.Outputs[Default Output].Columns[HttpResponseCode]"
+                      name="HttpResponseCode" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\JSON Destination.Outputs[Default Output].Columns[HttpResponseCodeName]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Data Flow Task\JSON Destination.Outputs[Default Output].Columns[HttpResponseCodeName]"
+                      name="HttpResponseCodeName" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task\Premium Excel Source"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="KingswaySoft Inc.; http://www.kingswaysoft.com; support@kingswaysoft.com; Copyright (c) 2011-2018 KingswaySoft Inc."
+              description="Extract data from Excel."
+              name="Premium Excel Source"
+              usesDispositions="true">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="The name of the Worksheet to read from the Excel file."
+                  expressionType="Notify"
+                  name="WorkSheetName">Hoja1</property>
+                <property
+                  dataType="System.String"
+                  description="The name of the range to read from the Excel file."
+                  expressionType="Notify"
+                  name="RangeName"></property>
+                <property
+                  dataType="System.String"
+                  description="Full path to the source file."
+                  expressionType="Notify"
+                  name="SourceFilePath">C:\Users\AREPOZMI\Desktop\varios\backup pen\20171210\Master\TFM\excels origen de datos\prueba entrada prensas.xls</property>
+                <property
+                  dataType="System.String"
+                  description="Password to open the Excel file."
+                  expressionType="Notify"
+                  name="OpenPassword"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Start row number."
+                  expressionType="Notify"
+                  name="StartRow">2</property>
+                <property
+                  dataType="System.Int32"
+                  description="Number of rows to read."
+                  expressionType="Notify"
+                  name="NumberOfRows">-1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specify if and where the column names are in the Excel file."
+                  expressionType="Notify"
+                  name="ColumnNamesLocation"
+                  typeConverter="KingswaySoft.IntegrationToolkit.ProductivityPack.Excel.ColumnNamesLocation, KingswaySoft.IntegrationToolkit.ProductivityPack, Version=1.0.2017.0, Culture=neutral, PublicKeyToken=705df8e0751bcea7">1</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">KingswaySoft.IntegrationToolkit.ProductivityPack.ExcelSourceComponent, KingswaySoft.IntegrationToolkit.ProductivityPack, Version=1.0.2017.0, Culture=neutral, PublicKeyToken=705df8e0751bcea7</property>
+              </properties>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\Premium Excel Source.Outputs[Default Output]"
+                  name="Default Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Premium Excel Source.Outputs[Default Output].Columns[namePrensa]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Premium Excel Source.Outputs[Default Output].ExternalColumns[namePrensa]"
+                      length="255"
+                      lineageId="Package\Data Flow Task\Premium Excel Source.Outputs[Default Output].Columns[namePrensa]"
+                      name="namePrensa"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Premium Excel Source.Outputs[Default Output].Columns[nameSensor]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Premium Excel Source.Outputs[Default Output].ExternalColumns[nameSensor]"
+                      length="255"
+                      lineageId="Package\Data Flow Task\Premium Excel Source.Outputs[Default Output].Columns[nameSensor]"
+                      name="nameSensor"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Premium Excel Source.Outputs[Default Output].Columns[typeSensor]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Premium Excel Source.Outputs[Default Output].ExternalColumns[typeSensor]"
+                      length="255"
+                      lineageId="Package\Data Flow Task\Premium Excel Source.Outputs[Default Output].Columns[typeSensor]"
+                      name="typeSensor"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Premium Excel Source.Outputs[Default Output].Columns[valueSensor]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Premium Excel Source.Outputs[Default Output].ExternalColumns[valueSensor]"
+                      length="255"
+                      lineageId="Package\Data Flow Task\Premium Excel Source.Outputs[Default Output].Columns[valueSensor]"
+                      name="valueSensor"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Premium Excel Source.Outputs[Default Output].ExternalColumns[namePrensa]"
+                      dataType="wstr"
+                      length="255"
+                      name="namePrensa">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Output format"
+                          name="OutputFormat"
+                          typeConverter="KingswaySoft.IntegrationToolkit.ProductivityPack.Excel.OutputFormat, KingswaySoft.IntegrationToolkit.ProductivityPack, Version=1.0.2017.0, Culture=neutral, PublicKeyToken=705df8e0751bcea7">1</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Premium Excel Source.Outputs[Default Output].ExternalColumns[nameSensor]"
+                      dataType="wstr"
+                      length="255"
+                      name="nameSensor">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Output format"
+                          name="OutputFormat"
+                          typeConverter="KingswaySoft.IntegrationToolkit.ProductivityPack.Excel.OutputFormat, KingswaySoft.IntegrationToolkit.ProductivityPack, Version=1.0.2017.0, Culture=neutral, PublicKeyToken=705df8e0751bcea7">1</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Premium Excel Source.Outputs[Default Output].ExternalColumns[typeSensor]"
+                      dataType="wstr"
+                      length="255"
+                      name="typeSensor">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Output format"
+                          name="OutputFormat"
+                          typeConverter="KingswaySoft.IntegrationToolkit.ProductivityPack.Excel.OutputFormat, KingswaySoft.IntegrationToolkit.ProductivityPack, Version=1.0.2017.0, Culture=neutral, PublicKeyToken=705df8e0751bcea7">1</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Premium Excel Source.Outputs[Default Output].ExternalColumns[valueSensor]"
+                      dataType="wstr"
+                      length="255"
+                      name="valueSensor">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Output format"
+                          name="OutputFormat"
+                          typeConverter="KingswaySoft.IntegrationToolkit.ProductivityPack.Excel.OutputFormat, KingswaySoft.IntegrationToolkit.ProductivityPack, Version=1.0.2017.0, Culture=neutral, PublicKeyToken=705df8e0751bcea7">1</property>
+                      </properties>
+                    </externalMetadataColumn>
+                  </externalMetadataColumns>
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Data Flow Task.Paths[Default Output]"
+              endId="Package\Data Flow Task\JSON Destination.Inputs[Input1 (Premium Excel Source)]"
+              name="Default Output"
+              startId="Package\Data Flow Task\Premium Excel Source.Outputs[Default Output]" />
+            <path
+              refId="Package\Data Flow Task.Paths[Default Output1]"
+              endId="Package\Data Flow Task\Flat File Destination.Inputs[Flat File Destination Input]"
+              name="Default Output"
+              startId="Package\Data Flow Task\JSON Destination.Outputs[Default Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="151,42"
+          Id="Package\Data Flow Task"
+          TopLeft="204,82" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Data Flow Task">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="160,42"
+          Id="Package\Data Flow Task\JSON Destination"
+          TopLeft="327,176" />
+        <NodeLayout
+          Size="172,42"
+          Id="Package\Data Flow Task\Flat File Destination"
+          TopLeft="317,286" />
+        <NodeLayout
+          Size="184,42"
+          Id="Package\Data Flow Task\Premium Excel Source"
+          TopLeft="303,67" />
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[Default Output1]"
+          TopLeft="405,218">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,68"
+              Start="0,0"
+              End="0,60.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,60.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-8,22.25,16,16"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[Default Output]"
+          TopLeft="395,109">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="12,67"
+              Start="0,0"
+              End="12,59.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,29.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,29.5"
+                    Point2="0,33.5"
+                    Point3="4,33.5" />
+                  <mssgle:LineSegment
+                    End="8,33.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="8,33.5"
+                    Point2="12,33.5"
+                    Point3="12,37.5" />
+                  <mssgle:LineSegment
+                    End="12,59.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
